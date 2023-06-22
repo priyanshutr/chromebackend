@@ -1,4 +1,21 @@
 {
+  "name": "chromebackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyanshutr/chromebackend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyanshutr/chromebackend/issues"
+  },
+  "homepage": "https://github.com/priyanshutr/chromebackend#readme",
   "dependencies": {
     "axios": "^1.4.0",
     "body-parser": "^1.20.2",

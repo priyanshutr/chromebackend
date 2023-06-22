@@ -33,6 +33,7 @@ app.post('/apiCall', async (req, res) => {
     };
 
     let response = await axios(config);
+    console.log(response);
     if (response.status == 200) {
       return res.status(200).send({ data: response.data })
     }
@@ -47,7 +48,7 @@ app.post('/apiCall', async (req, res) => {
 
   }
   catch (error) {
-    console.log(error)
+    return res.status(400).send({ error: "Wrong Credentials" })
   }
 })
 
