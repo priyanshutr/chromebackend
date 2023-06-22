@@ -38,7 +38,7 @@ app.post('/apiCall', async (req, res) => {
       return res.status(200).send({ data: response.data })
     }
     else {
-      return res.status(400).send({ error: "Wrong Credentials" })
+      return res.status(400).send({ data: { HttpCode: 500, message: "Worng Credentials" } })
     }
 
 
@@ -48,7 +48,7 @@ app.post('/apiCall', async (req, res) => {
 
   }
   catch (error) {
-    return res.status(400).send({ error: "Wrong Credentials" })
+    return res.status(400).send({ data: { HttpCode: 500, message: "Worng Credentials" } })
   }
 })
 
