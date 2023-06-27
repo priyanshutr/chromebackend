@@ -24,7 +24,7 @@ app.post('/apiCall', async (req, res) => {
 
     const token = `${username}:${password}`;
     const encodedToken = Buffer.from(token).toString('base64');
-    const session_url = `https://app.orcanos.com/${url}/api/v2/Json/QW_Login`;
+    const session_url = url;
 
     var config = {
       method: 'post',
