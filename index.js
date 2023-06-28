@@ -52,6 +52,43 @@ app.post('/apiCall', async (req, res) => {
   }
 })
 
+app.post('/getObject', async (req, res) => {
+
+  try {
+    let { id, url, username, password } = req.body;
+
+
+    const token = `${username}:${password}`;
+    const encodedToken = Buffer.from(token).toString('base64');
+    let arr = [];
+    for (let i of id) {
+      let session_url = `${url}/api/v2/Json/QW_Get_Object?id=${i}`;
+      var config = {
+        method: 'get',
+        url: session_url,
+        headers: { 'Authorization': 'Basic ' + encodedToken }
+      };
+
+      let response = await axios(config);
+      console.log(response);
+      if (response.status == 200) {
+        arr.push(response.data)
+      }
+    }
+    return res.status(200).send({ data: arr });
+
+
+
+    //    const token = `username:password`;
+    //     const encodedToken = Buffer.from(token).toString('base64');
+    //     console.log('encodedToken', encodedToken)
+
+  }
+  catch (error) {
+    return res.status(400).send({ data: { HttpCode: 500, message: "Worng Credentials" } })
+  }
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
